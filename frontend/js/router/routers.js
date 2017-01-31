@@ -3,8 +3,8 @@
         .module('biblio')
         .config(function ($stateProvider) {
             var persona = {
-                name: 'persona',
-                url: '/persona',
+                name: 'personal',
+                url: '/personal',
                 template: '<crud-persona></crud-persona>'
             };
             var encuesta = {

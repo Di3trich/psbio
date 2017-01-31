@@ -24,7 +24,11 @@
                 <tbody md-body>
                 <tr md-row ng-repeat="data in vm.crudData">
                     <td md-cell>{{ data.codigo }}</td>
+                    <td md-cell>{{ data.paterno }}</td>
+                    <td md-cell>{{ data.materno }}</td>
+                    <td md-cell>{{ data.nombres }}</td>
                     <td md-cell>{{ data.email }}</td>
+                    <td md-cell>{{ data.dispositivo }}</td>
                     <td md-cell width="110">
                         <md-button class="md-icon-button md-primary">
                             <md-icon>edit</md-icon>
