@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('biblio')
-        .directive('biblioWrapper', biblioWrapper);
+        .module('psbio')
+        .directive('wrapper', biblioWrapper);
 
     biblioWrapper.$inject = [];
 

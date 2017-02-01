@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('biblio')
+        .module('psbio')
         .controller('BoardController', BoardController);
 
     BoardController.$inject = ['$mdSidenav', '$mdToast', '$state'];
@@ -67,9 +67,9 @@
                     name: 'Administracion',
                     expand: true,
                     actions: [{
-                        name: 'Persona',
+                        name: 'Personal',
                         icon: 'person',
-                        link: 'persona'
+                        link: 'personal'
                     }, {
                         name: 'Encuesta',
                         icon: 'description',

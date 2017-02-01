@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('biblio')
+        .module('psbio')
         .component('crudPeriodo', crudPeriodo());
 
     function crudPeriodo() {

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('biblio')
+        .module('psbio')
         .component('crudEncuesta', crudEncuesta());
 
     function crudEncuesta() {

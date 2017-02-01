@@ -28,9 +28,12 @@ class DispositivoSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PersonaSerializer(serializers.HyperlinkedModelSerializer):
+    dispositivo = serializers.PrimaryKeyRelatedField(queryset=Dispositivo.objects.all())
+    dispositivo_name = serializers.StringRelatedField(source='dispositivo', read_only=True)
+
     class Meta:
         model = Persona
-        fields = ('url', 'codigo', 'paterno', 'materno', 'nombres', 'email', 'dispositivo')
+        fields = ('url', 'codigo', 'paterno', 'materno', 'nombres', 'email', 'dispositivo', 'dispositivo_name')
 
 
 class HorarioSerializer(serializers.HyperlinkedModelSerializer):

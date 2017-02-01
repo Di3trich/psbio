@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('biblio')
+        .module('psbio')
         .controller('GenericCrudController', GenericCrudController);
 
     GenericCrudController.$inject = ['vm', '$http'];

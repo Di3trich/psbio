@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module('biblio')
-        .config(function ($stateProvider) {
+        .module('psbio')
+        .config(function ($stateProvider, $httpProvider) {
             var persona = {
                 name: 'personal',
                 url: '/personal',
@@ -20,5 +20,8 @@
             $stateProvider.state(persona);
             $stateProvider.state(encuesta);
             $stateProvider.state(periodo);
+
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
         });
 })();

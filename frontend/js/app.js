@@ -1,8 +1,9 @@
 (function () {
     angular
-        .module('biblio', [
+        .module('psbio', [
             'ui.router',
             'ngMaterial',
-            'md.data.table'
+            'md.data.table',
+            'ngCookies'
         ]);
 })();

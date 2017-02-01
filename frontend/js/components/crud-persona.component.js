@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('biblio')
+        .module('psbio')
         .component('crudPersona', crudPersona());
 
     function crudPersona() {
@@ -20,9 +20,8 @@
     /* @ngInject */
     function CrudPersonaController($controller) {
         var vm = this;
-        vm.crudApiUrl = '/api/persona';
+        vm.crudApiUrl = '/api/persona/';
         $controller('GenericCrudController', {vm: vm});
     }
 
 })();
-
