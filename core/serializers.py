@@ -6,25 +6,25 @@ from rest_framework import serializers
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups', 'user_permissions', 'is_superuser')
+        fields = ('url', 'id', 'username', 'email', 'groups', 'user_permissions', 'is_superuser')
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ('url', 'name', 'permissions')
+        fields = ('url', 'id', 'name', 'permissions')
 
 
 class PermissionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Permission
-        fields = ('url', 'name')
+        fields = ('url', 'id', 'name')
 
 
 class DispositivoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Dispositivo
-        fields = ('url', 'codigo', 'nombre', 'descripcion')
+        fields = ('url', 'id', 'codigo', 'nombre', 'descripcion')
 
 
 class PersonaSerializer(serializers.HyperlinkedModelSerializer):
@@ -33,16 +33,16 @@ class PersonaSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Persona
-        fields = ('url', 'codigo', 'paterno', 'materno', 'nombres', 'email', 'dispositivo', 'dispositivo_name')
+        fields = ('url', 'id', 'codigo', 'paterno', 'materno', 'nombres', 'email', 'dispositivo', 'dispositivo_name')
 
 
 class HorarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Horario
-        fields = ('url', 'nombres', 'descripcion', 'inicio', 'final')
+        fields = ('url', 'id', 'nombres', 'descripcion', 'inicio', 'final')
 
 
 class RegistroSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Registro
-        fields = ('url', 'marca', 'persona')
+        fields = ('url', 'id', 'marca', 'persona')

@@ -40,7 +40,7 @@
                 '</md-button>' +
                 '</div>' +
                 '</md-toolbar>' +
-                '<md-content ng-include="vm.template" layout="column" flex-fill></md-content>' +
+                '<md-dialog-content ng-include="vm.template" layout="column" layout-padding></md-dialog-content>' +
                 '<md-dialog-actions flex>' +
                 '<md-button ng-click="vm.cancel($event)" class="md-primary md-raised">' +
                 '<md-icon>close</md-icon> Cancelar' +
@@ -87,6 +87,7 @@
         vm.cancel = cancel;
         vm.field = rowData.field;
         vm.template = rowData.template;
+        vm.error = {};
 
         function perform(ev) {
             var request = null;
@@ -102,8 +103,8 @@
             $mdDialog.hide('saved');
         }
 
-        function failed() {
-
+        function failed(result) {
+            vm.error = result.data;
         }
 
         function cancel(ev) {

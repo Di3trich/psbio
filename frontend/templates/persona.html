@@ -42,9 +42,7 @@
                                 <md-icon>edit</md-icon>
                             </md-button>
                         </update-insert-modal>
-                        <md-button class="md-icon-button md-warn">
-                            <md-icon>delete</md-icon>
-                        </md-button>
+                        <remove api-url="data.url" on-remove="vm.getCrudData()"></remove>
                     </td>
                 </tr>
                 </tbody>
@@ -62,28 +60,40 @@
 </wrapper>
 
 <script type="text/ng-template" id="form-persona.html">
-    <md-input-container flex>
-        <label>Codigo</label>
-        <input type="number" ng-model="vm.field.codigo"/>
-    </md-input-container>
-    <md-input-container flex>
-        <label>Paterno</label>
-        <input type="text" ng-model="vm.field.paterno"/>
-    </md-input-container>
-    <md-input-container flex>
-        <label>Materno</label>
-        <input type="text" ng-model="vm.field.materno"/>
-    </md-input-container>
-    <md-input-container flex>
-        <label>nombres</label>
-        <input type="text" ng-model="vm.field.nombres"/>
-    </md-input-container>
-    <md-input-container flex>
-        <label>Email</label>
-        <input type="email" ng-model="vm.field.email"/>
-    </md-input-container>
-    <md-input-container flex>
-        <label>Dispositivo</label>
-        <input type="number" ng-model="vm.field.dispositivo"/>
-    </md-input-container>
+    <div layout="row">
+        <md-input-container flex="20">
+            <label>Codigo</label>
+            <input type="number" ng-model="vm.field.codigo"/>
+            <field-error error-data="vm.error.codigo"></field-error>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container flex="30">
+            <label>Paterno</label>
+            <input type="text" ng-model="vm.field.paterno"/>
+            <field-error error-data="vm.error.paterno"></field-error>
+        </md-input-container>
+        <md-input-container flex="30">
+            <label>Materno</label>
+            <input type="text" ng-model="vm.field.materno"/>
+            <field-error error-data="vm.error.materno"></field-error>
+        </md-input-container>
+        <md-input-container flex="40">
+            <label>Nombres</label>
+            <input type="text" ng-model="vm.field.nombres"/>
+            <field-error error-data="vm.error.nombres"></field-error>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container flex="50">
+            <label>Email</label>
+            <input type="email" ng-model="vm.field.email"/>
+            <field-error error-data="vm.error.email"></field-error>
+        </md-input-container>
+        <md-input-container flex="50">
+            <label>Dispositivo</label>
+            <field-select api-url="'/api/dispositivo/'" model="vm.field.dispositivo" field="nombre"></field-select>
+            <field-error error-data="vm.error.dispositivo"></field-error>
+        </md-input-container>
+    </div>
 </script>
