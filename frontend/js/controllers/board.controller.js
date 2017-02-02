@@ -68,7 +68,7 @@
                     expand: true,
                     actions: [{
                         name: 'Dispositivos',
-                        icon: 'person',
+                        icon: 'fingerprint',
                         link: 'dispositivo'
                     }, {
                         name: 'Personal',
@@ -82,14 +82,6 @@
                         name: 'Horario',
                         icon: 'schedule',
                         link: 'horario'
-                    }]
-                }, {
-                    name: 'Encuesta',
-                    expand: false,
-                    actions: [{
-                        name: 'Encuestas',
-                        icon: 'playlist_add_check',
-                        link: 'Action 3'
                     }]
                 }, {
                     name: 'Reportes',
