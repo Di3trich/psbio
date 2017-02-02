@@ -8,9 +8,9 @@
                 template: '<crud-persona></crud-persona>'
             };
             var encuesta = {
-                name: 'encuesta',
-                url: '/encuesta',
-                template: '<crud-encuesta></crud-encuesta>'
+                name: 'dispositivo',
+                url: '/dispositivo',
+                template: '<crud-dispositivo></crud-dispositivo>'
             };
             var periodo = {
                 name: 'periodo',

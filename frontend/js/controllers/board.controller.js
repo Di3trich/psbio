@@ -28,10 +28,10 @@
             else list.push(item);
         };
         vm.data = {
-            title: 'Biblioteca',
+            title: 'PeruSis Biometrics',
             user: {
-                name: 'Usuario Biblioteca',
-                email: 'admin@biblio.com',
+                name: 'Usuario Sistema Biometrico',
+                email: 'admin@psbiometrics.com',
                 icon: 'face'
             },
             toolbar: {
@@ -67,6 +67,10 @@
                     name: 'Administracion',
                     expand: true,
                     actions: [{
+                        name: 'Dispositivos',
+                        icon: 'person',
+                        link: 'dispositivo'
+                    }, {
                         name: 'Personal',
                         icon: 'person',
                         link: 'personal'

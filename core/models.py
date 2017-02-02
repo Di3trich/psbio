@@ -19,7 +19,7 @@ class Persona(models.Model):
     materno = models.CharField(max_length=64)
     nombres = models.CharField(max_length=128)
     email = models.EmailField(null=True, blank=True)
-    dispositivo = models.ForeignKey(Dispositivo)
+    dispositivo = models.ForeignKey(Dispositivo, related_name='personas')
 
     def __str__(self):
         return "[%d] %s %s %s" % (self.codigo, self.paterno, self.materno, self.nombres)

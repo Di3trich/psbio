@@ -1,0 +1,76 @@
+<wrapper title="Administración" to-excel="#tabla">
+
+    <md-toolbar class="md-table-toolbar md-default" ng-hide="vm.crudSelected.length">
+        <div class="md-toolbar-tools">
+            <h2 class="md-title">Dispositivo</h2>
+            <div flex></div>
+            <update-insert-modal api-url="vm.crudApiUrl" on-save="vm.getCrudData()" template="form-dispositivo.html">
+                <md-button class="md-fab md-primary md-mini">
+                    <md-icon>insert_drive_file</md-icon>
+                </md-button>
+            </update-insert-modal>
+        </div>
+    </md-toolbar>
+
+    <div layout="column" flex>
+        <!-- exact table from live demo -->
+        <md-table-container>
+            <table md-table>
+                <thead md-head md-order="vm.crudOrder" md-on-reorder="vm.getCrudData">
+                <tr md-row>
+                    <th md-column>Código</th>
+                    <th md-column>Nombre</th>
+                    <th md-column>Descripcion</th>
+                    <th md-column>Opciones</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="data in vm.crudData">
+                    <td md-cell>{{ data.codigo }}</td>
+                    <td md-cell>{{ data.nombre }}</td>
+                    <td md-cell>{{ data.descripcion }}</td>
+                    <td md-cell width="110">
+                        <update-insert-modal row-data="data" api-url="data.url" on-save="vm.getCrudData()"
+                                             template="form-dispositivo.html">
+                            <md-button class="md-icon-button md-primary">
+                                <md-icon>edit</md-icon>
+                            </md-button>
+                        </update-insert-modal>
+                        <remove api-url="data.url" on-remove="vm.getCrudData()"></remove>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="vm.crudLimit"
+                             md-limit-options="[5, 10, 15]"
+                             md-page="vm.crudPage"
+                             md-total="{{ vm.crudTotal }}"
+                             md-on-paginate="vm.getCrudData"
+                             md-page-select>
+        </md-table-pagination>
+    </div>
+</wrapper>
+
+<script type="text/ng-template" id="form-dispositivo.html">
+    <div layout="row">
+        <md-input-container flex="20">
+            <label>Codigo</label>
+            <input type="number" ng-model="vm.field.codigo"/>
+            <field-error error-data="vm.error.codigo"></field-error>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container flex="30">
+            <label>Nombre</label>
+            <input type="text" ng-model="vm.field.nombre"/>
+            <field-error error-data="vm.error.nombre"></field-error>
+        </md-input-container>
+        <md-input-container flex="30">
+            <label>Descripcion</label>
+            <input type="text" ng-model="vm.field.descripcion"/>
+            <field-error error-data="vm.error.descripcion"></field-error>
+        </md-input-container>
+    </div>
+</script>
