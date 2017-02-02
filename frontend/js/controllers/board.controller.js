@@ -75,9 +75,9 @@
                         icon: 'person',
                         link: 'personal'
                     }, {
-                        name: 'Encuesta',
+                        name: 'Registro',
                         icon: 'description',
-                        link: 'encuesta'
+                        link: 'registro'
                     }, {
                         name: 'Horario',
                         icon: 'schedule',

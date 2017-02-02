@@ -45,6 +45,9 @@ class HorarioSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class RegistroSerializer(serializers.HyperlinkedModelSerializer):
+    persona = serializers.PrimaryKeyRelatedField(queryset=Persona.objects.all())
+    persona_name = serializers.StringRelatedField(source='persona', read_only=True)
+
     class Meta:
         model = Registro
-        fields = ('url', 'id', 'marca', 'persona')
+        fields = ('url', 'id', 'marca', 'persona', 'persona_name')

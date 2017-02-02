@@ -17,9 +17,15 @@
                 url: '/horario',
                 template: '<crud-horario></crud-horario>'
             };
+            var registro = {
+                name: 'registro',
+                url: '/registro',
+                template: '<crud-registro></crud-registro>'
+            };
             $stateProvider.state(persona);
             $stateProvider.state(dospositivo);
             $stateProvider.state(horario);
+            $stateProvider.state(registro);
 
             $httpProvider.defaults.xsrfCookieName = 'csrftoken';
             $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';

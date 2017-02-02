@@ -4,6 +4,7 @@
             'ui.router',
             'ngMaterial',
             'md.data.table',
-            'ngCookies'
+            'ngCookies',
+            'datetime'
         ]);
 })();
