@@ -7,19 +7,19 @@
                 url: '/personal',
                 template: '<crud-persona></crud-persona>'
             };
-            var encuesta = {
+            var dospositivo = {
                 name: 'dispositivo',
                 url: '/dispositivo',
                 template: '<crud-dispositivo></crud-dispositivo>'
             };
-            var periodo = {
-                name: 'periodo',
-                url: '/periodo',
-                template: '<crud-periodo></crud-periodo>'
+            var horario = {
+                name: 'horario',
+                url: '/horario',
+                template: '<crud-horario></crud-horario>'
             };
             $stateProvider.state(persona);
-            $stateProvider.state(encuesta);
-            $stateProvider.state(periodo);
+            $stateProvider.state(dospositivo);
+            $stateProvider.state(horario);
 
             $httpProvider.defaults.xsrfCookieName = 'csrftoken';
             $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';

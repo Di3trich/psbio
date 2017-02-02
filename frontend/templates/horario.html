@@ -1,0 +1,83 @@
+<wrapper title="Administración" to-excel="#tabla">
+
+    <md-toolbar class="md-table-toolbar md-default" ng-hide="vm.crudSelected.length">
+        <div class="md-toolbar-tools">
+            <h2 class="md-title">Horario</h2>
+            <div flex></div>
+            <update-insert-modal api-url="vm.crudApiUrl" on-save="vm.getCrudData()" template="form-horario.html">
+                <md-button class="md-fab md-primary md-mini">
+                    <md-icon>insert_drive_file</md-icon>
+                </md-button>
+            </update-insert-modal>
+        </div>
+    </md-toolbar>
+
+    <div layout="column" flex>
+        <!-- exact table from live demo -->
+        <md-table-container>
+            <table md-table>
+                <thead md-head md-order="vm.crudOrder" md-on-reorder="vm.getCrudData">
+                <tr md-row>
+                    <th md-column>Nombre</th>
+                    <th md-column>Descripción</th>
+                    <th md-column>Inicio</th>
+                    <th md-column>Final</th>
+                    <th md-column>Opciones</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="data in vm.crudData">
+                    <td md-cell>{{ data.nombre }}</td>
+                    <td md-cell>{{ data.descripcion }}</td>
+                    <td md-cell>{{ data.inicio }}</td>
+                    <td md-cell>{{ data.final }}</td>
+                    <td md-cell width="110">
+                        <update-insert-modal row-data="data" api-url="data.url" on-save="vm.getCrudData()"
+                                             template="form-horario.html">
+                            <md-button class="md-icon-button md-primary">
+                                <md-icon>edit</md-icon>
+                            </md-button>
+                        </update-insert-modal>
+                        <remove api-url="data.url" on-remove="vm.getCrudData()"></remove>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="vm.crudLimit"
+                             md-limit-options="[5, 10, 15]"
+                             md-page="vm.crudPage"
+                             md-total="{{ vm.crudTotal }}"
+                             md-on-paginate="vm.getCrudData"
+                             md-page-select>
+        </md-table-pagination>
+    </div>
+</wrapper>
+
+<script type="text/ng-template" id="form-horario.html">
+    <div layout="row">
+        <md-input-container flex="30">
+            <label>Nombre</label>
+            <input type="text" ng-model="vm.field.nombre"/>
+            <field-error error-data="vm.error.nombre"></field-error>
+        </md-input-container>
+        <md-input-container flex="30">
+            <label>Descripcion</label>
+            <input type="text" ng-model="vm.field.descripcion"/>
+            <field-error error-data="vm.error.descripcion"></field-error>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container flex="50">
+            <label>Inicio</label>
+            <input type="time" ng-model="vm.field.inicio"/>
+            <field-error error-data="vm.error.inicio"></field-error>
+        </md-input-container>
+        <md-input-container flex="50">
+            <label>Final</label>
+            <input type="time" ng-model="vm.field.final"/>
+            <field-error error-data="vm.error.final"></field-error>
+        </md-input-container>
+    </div>
+</script>

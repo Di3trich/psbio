@@ -79,9 +79,9 @@
                         icon: 'description',
                         link: 'encuesta'
                     }, {
-                        name: 'Periodo',
+                        name: 'Horario',
                         icon: 'schedule',
-                        link: 'periodo'
+                        link: 'horario'
                     }]
                 }, {
                     name: 'Encuesta',
