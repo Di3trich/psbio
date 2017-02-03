@@ -55,14 +55,14 @@
     <div layout="row">
         <md-input-container flex>
             <label>Persona</label>
-            <input type="text" ng-model="vm.field.persona"/>
+            <field-select api-url="'/api/persona/'" model="vm.field.persona" field="nombres"></field-select>
             <field-error error-data="vm.error.persona"></field-error>
         </md-input-container>
     </div>
     <div layout="row">
         <md-input-container flex>
             <label>Marca</label>
-            <input type="text" datetime="yyyy-MM-dd HH:mm:ss" ng-model="vm.field.marca" datetime-model="yyyy-MM-dd HH:mm:ss"/>
+            <input type="text" datetime="yyyy-MM-dd HH:mm:ss" ng-model="vm.field.marca" datetime-model="yyyy-MM-ddTHH:mm:ssZ"/>
             <field-error error-data="vm.error.marca"></field-error>
         </md-input-container>
     </div>
