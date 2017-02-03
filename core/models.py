@@ -13,6 +13,7 @@ class Dispositivo(models.Model):
         self.nombre = self.nombre.upper()
         super(Dispositivo, self).save(*args, **kwargs)
 
+
 class Persona(models.Model):
     codigo = models.IntegerField(unique=True)
     paterno = models.CharField(max_length=64)
@@ -20,6 +21,10 @@ class Persona(models.Model):
     nombres = models.CharField(max_length=128)
     email = models.EmailField(null=True, blank=True)
     dispositivo = models.ForeignKey(Dispositivo, related_name='personas')
+
+    @property
+    def nombre_completo(self):
+        return "[%d] %s %s, %s" % (self.codigo, self.paterno, self.materno, self.nombres)
 
     def __str__(self):
         return "[%d] %s %s %s" % (self.codigo, self.paterno, self.materno, self.nombres)
@@ -47,7 +52,7 @@ class Horario(models.Model):
 
 class Registro(models.Model):
     marca = models.DateTimeField()
-    persona = models.ForeignKey(Persona)
+    persona = models.ForeignKey(Persona, related_name='registros')
 
     def __str__(self):
         return "%s (%s)" % (self.persona, self.marca)

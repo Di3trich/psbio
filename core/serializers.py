@@ -21,13 +21,24 @@ class PermissionSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'id', 'name')
 
 
+class RegistroSerializer(serializers.HyperlinkedModelSerializer):
+    persona = serializers.PrimaryKeyRelatedField(queryset=Persona.objects.all())
+    persona_name = serializers.StringRelatedField(source='persona', read_only=True)
+
+    class Meta:
+        model = Registro
+        fields = ('url', 'id', 'marca', 'persona', 'persona_name')
+
+
 class PersonaSerializer(serializers.HyperlinkedModelSerializer):
     dispositivo = serializers.PrimaryKeyRelatedField(queryset=Dispositivo.objects.all())
     dispositivo_name = serializers.StringRelatedField(source='dispositivo', read_only=True)
+    registros = RegistroSerializer(read_only=True, many=True)
 
     class Meta:
         model = Persona
-        fields = ('url', 'id', 'codigo', 'paterno', 'materno', 'nombres', 'email', 'dispositivo', 'dispositivo_name')
+        fields = ('url', 'id', 'codigo', 'paterno', 'materno', 'nombres', 'email', 'dispositivo', 'dispositivo_name',
+                  'nombre_completo', 'registros')
 
 
 class DispositivoSerializer(serializers.HyperlinkedModelSerializer):
@@ -42,12 +53,3 @@ class HorarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Horario
         fields = ('url', 'id', 'nombre', 'descripcion', 'inicio', 'final')
-
-
-class RegistroSerializer(serializers.HyperlinkedModelSerializer):
-    persona = serializers.PrimaryKeyRelatedField(queryset=Persona.objects.all())
-    persona_name = serializers.StringRelatedField(source='persona', read_only=True)
-
-    class Meta:
-        model = Registro
-        fields = ('url', 'id', 'marca', 'persona', 'persona_name')
