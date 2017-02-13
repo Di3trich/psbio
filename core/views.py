@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User, Group, Permission
-from core.models import Persona, Horario, Registro, Dispositivo
+from core.models import Persona, Horario, Registro, Dispositivo, SegmentoHorario, Reporte
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 from .serializers import UserSerializer, GroupSerializer, PermissionSerializer, PersonaSerializer, HorarioSerializer, \
-    RegistroSerializer, DispositivoSerializer
+    RegistroSerializer, DispositivoSerializer, SegmentoHorarioSerializer, ReporteSerializer
 
 
 class PaginationControl(PageNumberPagination):
@@ -65,4 +65,20 @@ class RegistroViewSet(viewsets.ModelViewSet):
     """
     queryset = Registro.objects.all()
     serializer_class = RegistroSerializer
+    pagination_class = PaginationControl
+
+
+class SegmentoHorarioViewSet(viewsets.ModelViewSet):
+    """
+    """
+    queryset = SegmentoHorario.objects.all()
+    serializer_class = SegmentoHorarioSerializer
+    pagination_class = PaginationControl
+
+
+class ReporteViewSet(viewsets.ModelViewSet):
+    """
+    """
+    queryset = Reporte.objects.all()
+    serializer_class = ReporteSerializer
     pagination_class = PaginationControl
