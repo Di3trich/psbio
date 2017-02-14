@@ -21,6 +21,7 @@
                     <th md-column>Código</th>
                     <th md-column>Nombre</th>
                     <th md-column>Descripcion</th>
+                    <th md-column>Estado</th>
                     <th md-column>Opciones</th>
                 </tr>
                 </thead>
@@ -29,6 +30,9 @@
                     <td md-cell>{{ data.codigo }}</td>
                     <td md-cell>{{ data.nombre }}</td>
                     <td md-cell>{{ data.descripcion }}</td>
+                    <td md-cell md-colors="{ color: data.activo?'primary':'warn' }">
+                        {{ data.activo?'Activo':'Inactivo' }}
+                    </td>
                     <td md-cell width="110">
                         <update-insert-modal row-data="data" api-url="data.url" on-save="vm.getCrudData()"
                                              template="form-dispositivo.html">

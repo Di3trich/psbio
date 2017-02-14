@@ -20,8 +20,7 @@
                 <tr md-row>
                     <th md-column>Nombre</th>
                     <th md-column>Descripción</th>
-                    <th md-column>Inicio</th>
-                    <th md-column>Final</th>
+                    <th md-column>Horario</th>
                     <th md-column>Opciones</th>
                 </tr>
                 </thead>
@@ -29,8 +28,11 @@
                 <tr md-row ng-repeat="data in vm.crudData">
                     <td md-cell>{{ data.nombre }}</td>
                     <td md-cell>{{ data.descripcion }}</td>
-                    <td md-cell>{{ data.inicio }}</td>
-                    <td md-cell>{{ data.final }}</td>
+                    <td md-cell>
+                        <span ng-repeat="segmento in data.segmentos_horarios">
+                            {{ segmento.nombre }} [{{ segmento.inicio }} - {{ segmento.final }}]
+                        </span>
+                    </td>
                     <td md-cell width="110">
                         <update-insert-modal row-data="data" api-url="data.url" on-save="vm.getCrudData()"
                                              template="form-horario.html">
